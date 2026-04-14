@@ -1,0 +1,8 @@
+venv/
+.chromadb/
+__pycache__/
+*.pth
+data/
+*.zip
+.DS_Store
+*.pyc
