@@ -7,4 +7,4 @@ __pycache__/
 .env
 chroma_db/
 logs/
-eval_results/
+eval_results/data/wikiart/
