@@ -13,7 +13,7 @@ Image Upload
     ↓
 CNN (EfficientNet-B0) → Predicts movement class
     ↓
-Query Expansion → "Impressionism" → "Impressionism plein air brushstrokes Monet Renoir..."
+Query Expansion → Predicted class → Rich search query with artists, techniques, keywords
     ↓
 Hybrid Retrieval → Dense (ChromaDB cosine) + Sparse (BM25) + RRF Fusion
     ↓

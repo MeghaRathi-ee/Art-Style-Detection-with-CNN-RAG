@@ -8,3 +8,5 @@ __pycache__/
 chroma_db/
 logs/
 eval_results/data/wikiart/
+data/wikiart/
+eval_results/
