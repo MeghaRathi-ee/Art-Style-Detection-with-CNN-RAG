@@ -1,0 +1,702 @@
+[
+  {
+    "id": "q001",
+    "question": "What technique did Jackson Pollock use to create his paintings?",
+    "ground_truth": "Jackson Pollock used drip painting, laying canvases on the floor and pouring, dripping, and flinging paint using sticks, hardened brushes, and basting syringes.",
+    "movement_class": "Abstract_Expressionism",
+    "relevant_chunks": ["Abstract_Expressionism"]
+  },
+  {
+    "id": "q002",
+    "question": "Who coined the term Action Painting?",
+    "ground_truth": "The term Action Painting was coined by the American critic Harold Rosenberg in 1952 in his essay The American Action Painters.",
+    "movement_class": "Action_painting",
+    "relevant_chunks": ["Action_painting"]
+  },
+  {
+    "id": "q003",
+    "question": "How does Analytical Cubism differ from Synthetic Cubism?",
+    "ground_truth": "Analytical Cubism involved breaking down objects into fragmented geometric planes using muted monochrome colors, while Synthetic Cubism reversed this by building up images with brighter colors, simpler shapes, and collage elements.",
+    "movement_class": "Analytical_Cubism",
+    "relevant_chunks": ["Analytical_Cubism", "Synthetic_Cubism"]
+  },
+  {
+    "id": "q004",
+    "question": "What is the significance of Gustav Klimt's The Kiss?",
+    "ground_truth": "The Kiss depicts an embracing couple wrapped in richly patterned golden robes, combining realistic flesh tones with abstract gold decoration, exemplifying Art Nouveau's fusion of the natural and the decorative.",
+    "movement_class": "Art_Nouveau_Modern",
+    "relevant_chunks": ["Art_Nouveau_Modern"]
+  },
+  {
+    "id": "q005",
+    "question": "What is tenebrism in Baroque painting?",
+    "ground_truth": "Tenebrism is an extreme form of chiaroscuro using a single intense light source to illuminate figures emerging from deep, impenetrable darkness, pioneered by Caravaggio.",
+    "movement_class": "Baroque",
+    "relevant_chunks": ["Baroque"]
+  },
+  {
+    "id": "q006",
+    "question": "What is the soak-stain technique?",
+    "ground_truth": "The soak-stain technique was pioneered by Helen Frankenthaler in 1952, pouring thinned oil paint directly onto unprimed canvas so the color soaked into the fabric rather than sitting on top of it.",
+    "movement_class": "Color_Field_Painting",
+    "relevant_chunks": ["Color_Field_Painting", "Abstract_Expressionism"]
+  },
+  {
+    "id": "q007",
+    "question": "What is Photorealism?",
+    "ground_truth": "Photorealism is a movement where painters create works virtually indistinguishable from photographs, working from photographic sources using techniques like projection and grid systems to achieve extreme precision.",
+    "movement_class": "Contemporary_Realism",
+    "relevant_chunks": ["Contemporary_Realism"]
+  },
+  {
+    "id": "q008",
+    "question": "Who are the co-founders of Cubism?",
+    "ground_truth": "Cubism was co-founded by Pablo Picasso and Georges Braque between 1907 and 1914.",
+    "movement_class": "Cubism",
+    "relevant_chunks": ["Cubism"]
+  },
+  {
+    "id": "q009",
+    "question": "What is linear perspective and who developed it?",
+    "ground_truth": "Linear perspective is a mathematical system for creating the illusion of three-dimensional depth on a flat surface, demonstrated by Filippo Brunelleschi around 1415 and first applied systematically in painting by Masaccio.",
+    "movement_class": "Early_Renaissance",
+    "relevant_chunks": ["Early_Renaissance"]
+  },
+  {
+    "id": "q010",
+    "question": "What were the two main Expressionist groups in Germany?",
+    "ground_truth": "Die Brucke (The Bridge), founded in Dresden in 1905, and Der Blaue Reiter (The Blue Rider), formed in Munich in 1911 by Kandinsky and Franz Marc.",
+    "movement_class": "Expressionism",
+    "relevant_chunks": ["Expressionism"]
+  },
+  {
+    "id": "q011",
+    "question": "How did the Fauvists get their name?",
+    "ground_truth": "Art critic Louis Vauxcelles called them Les Fauves (The Wild Beasts) after seeing their intensely colored paintings at the 1905 Salon d'Automne in Paris.",
+    "movement_class": "Fauvism",
+    "relevant_chunks": ["Fauvism"]
+  },
+  {
+    "id": "q012",
+    "question": "What is Leonardo da Vinci's sfumato technique?",
+    "ground_truth": "Sfumato involves building up multiple transparent layers of paint so thin that individual brushstrokes are invisible, creating soft, smoky transitions between light and shadow.",
+    "movement_class": "High_Renaissance",
+    "relevant_chunks": ["High_Renaissance"]
+  },
+  {
+    "id": "q013",
+    "question": "What does en plein air mean in Impressionism?",
+    "ground_truth": "En plein air means painting outdoors directly from nature rather than in the studio, allowing artists to capture the immediate visual impression and transient effects of natural light.",
+    "movement_class": "Impressionism",
+    "relevant_chunks": ["Impressionism"]
+  },
+  {
+    "id": "q014",
+    "question": "Who painted Madonna with the Long Neck?",
+    "ground_truth": "Parmigianino painted Madonna with the Long Neck around 1534-1540, featuring deliberately elongated proportions characteristic of Mannerism.",
+    "movement_class": "Mannerism_Late_Renaissance",
+    "relevant_chunks": ["Mannerism_Late_Renaissance"]
+  },
+  {
+    "id": "q015",
+    "question": "What did Frank Stella mean by what you see is what you see?",
+    "ground_truth": "Stella meant that art should not refer to anything beyond itself, should not express emotions, symbolize ideas, or create illusionistic space — the artwork is simply an object in the world to be experienced directly.",
+    "movement_class": "Minimalism",
+    "relevant_chunks": ["Minimalism"]
+  },
+  {
+    "id": "q016",
+    "question": "Who was Henri Rousseau?",
+    "ground_truth": "Henri Rousseau was a self-taught artist who worked as a customs officer, famous for his exotic jungle scenes painted in a flat, decorative style with dreamlike quality, despite never having traveled to the tropics.",
+    "movement_class": "Naive_Art_Primitivism",
+    "relevant_chunks": ["Naive_Art_Primitivism"]
+  },
+  {
+    "id": "q017",
+    "question": "What is International Klein Blue?",
+    "ground_truth": "International Klein Blue (IKB) was a specific shade of ultramarine blue developed by Yves Klein with a paint manufacturer, using a synthetic resin binder that preserved the intense matte quality of pure pigment.",
+    "movement_class": "New_Realism",
+    "relevant_chunks": ["New_Realism"]
+  },
+  {
+    "id": "q018",
+    "question": "What made Jan van Eyck's painting technique revolutionary?",
+    "ground_truth": "Van Eyck perfected oil-based glazes to create paintings of extraordinary luminosity, depth, and detail, building images through multiple thin transparent layers that produced microscopic precision in rendering textures.",
+    "movement_class": "Northern_Renaissance",
+    "relevant_chunks": ["Northern_Renaissance"]
+  },
+  {
+    "id": "q019",
+    "question": "How does Pointillism work?",
+    "ground_truth": "Pointillism involves applying small distinct dots of pure color to the canvas that blend together in the viewer's eye when seen from a distance, based on scientific theories of color optics.",
+    "movement_class": "Pointillism",
+    "relevant_chunks": ["Pointillism"]
+  },
+  {
+    "id": "q020",
+    "question": "What technique did Andy Warhol use?",
+    "ground_truth": "Warhol used silkscreen printing, taking photographic images, converting them into silkscreen stencils, and printing multiple versions on canvas with varying colors and registration.",
+    "movement_class": "Pop_Art",
+    "relevant_chunks": ["Pop_Art"]
+  },
+  {
+    "id": "q021",
+    "question": "Why is Cezanne called the father of modern art?",
+    "ground_truth": "Cezanne's innovations in reducing natural forms to geometric essentials and building pictures through carefully placed patches of color laid the groundwork for Cubism and virtually every major 20th-century art movement.",
+    "movement_class": "Post_Impressionism",
+    "relevant_chunks": ["Post_Impressionism"]
+  },
+  {
+    "id": "q022",
+    "question": "What was Gustave Courbet's approach to Realism?",
+    "ground_truth": "Courbet declared that painting is essentially concrete and can only consist of real and existing things, rejecting all idealization and using bold palette knife technique to emphasize the material reality of paint.",
+    "movement_class": "Realism",
+    "relevant_chunks": ["Realism"]
+  },
+  {
+    "id": "q023",
+    "question": "What is a fete galante?",
+    "ground_truth": "Fete galante is a genre created by Antoine Watteau depicting elegant figures in idyllic outdoor settings engaged in conversation, music, dance, and courtship, characteristic of Rococo painting.",
+    "movement_class": "Rococo",
+    "relevant_chunks": ["Rococo"]
+  },
+  {
+    "id": "q024",
+    "question": "What is the concept of the sublime in Romanticism?",
+    "ground_truth": "The sublime refers to the overwhelming power and grandeur of nature that evokes feelings of awe, terror, and transcendence, as depicted by artists like Caspar David Friedrich and J.M.W. Turner.",
+    "movement_class": "Romanticism",
+    "relevant_chunks": ["Romanticism"]
+  },
+  {
+    "id": "q025",
+    "question": "What did Symbolist painters try to express?",
+    "ground_truth": "Symbolist painters sought to make visible the invisible, using visual metaphors and suggestive imagery to convey ideas, emotions, and psychological states beyond the reach of straightforward representation.",
+    "movement_class": "Symbolism",
+    "relevant_chunks": ["Symbolism"]
+  },
+  {
+    "id": "q026",
+    "question": "What was the key innovation of Synthetic Cubism?",
+    "ground_truth": "The key innovation was the introduction of collage (papier colle), incorporating real-world materials like newspaper, wallpaper, and fabric directly into artworks.",
+    "movement_class": "Synthetic_Cubism",
+    "relevant_chunks": ["Synthetic_Cubism"]
+  },
+  {
+    "id": "q027",
+    "question": "What is ukiyo-e?",
+    "ground_truth": "Ukiyo-e means pictures of the floating world, a genre of Japanese art primarily associated with woodblock printing that depicted kabuki actors, beautiful women, landscapes, and scenes of urban culture in Edo-period Japan.",
+    "movement_class": "Ukiyo_e",
+    "relevant_chunks": ["Ukiyo_e"]
+  },
+  {
+    "id": "q028",
+    "question": "What role did Clement Greenberg play in Abstract Expressionism?",
+    "ground_truth": "Greenberg was a major critic who advocated for the flatness of the picture plane and purity of the medium, supporting Pollock's work as the culmination of a tradition going back through Cubism and Cezanne to Monet.",
+    "movement_class": "Abstract_Expressionism",
+    "relevant_chunks": ["Abstract_Expressionism"]
+  },
+  {
+    "id": "q029",
+    "question": "What is the difference between Action Painting and Color Field Painting?",
+    "ground_truth": "Action Painting is characterized by energetic gestural brushwork and physical engagement with the canvas, while Color Field Painting involves large areas of flat color meant to evoke contemplative or spiritual responses.",
+    "movement_class": "Abstract_Expressionism",
+    "relevant_chunks": ["Abstract_Expressionism", "Color_Field_Painting", "Action_painting"]
+  },
+  {
+    "id": "q030",
+    "question": "How did Caravaggio influence Baroque painting?",
+    "ground_truth": "Caravaggio's revolutionary dramatic chiaroscuro lighting, use of common people as models for religious figures, and painting directly from life without preparatory drawings influenced an entire generation of followers known as the Caravaggisti.",
+    "movement_class": "Baroque",
+    "relevant_chunks": ["Baroque"]
+  },
+  {
+    "id": "q031",
+    "question": "What is Les Demoiselles d'Avignon and why is it important?",
+    "ground_truth": "Les Demoiselles d'Avignon is a 1907 painting by Picasso depicting five nude women with fractured angular forms and African mask-like faces. It is considered the first proto-Cubist painting and one of the most important paintings of the 20th century.",
+    "movement_class": "Cubism",
+    "relevant_chunks": ["Cubism", "Analytical_Cubism"]
+  },
+  {
+    "id": "q032",
+    "question": "Who painted The Scream and what movement is it associated with?",
+    "ground_truth": "The Scream was painted by Edvard Munch in 1893 and is considered a precursor and major influence on Expressionism, becoming an iconic image of modern anxiety and existential dread.",
+    "movement_class": "Expressionism",
+    "relevant_chunks": ["Expressionism"]
+  },
+  {
+    "id": "q033",
+    "question": "What is the Sistine Chapel ceiling and who painted it?",
+    "ground_truth": "The Sistine Chapel ceiling was painted by Michelangelo between 1508 and 1512, covering over 5,000 square feet with scenes from Genesis including the iconic Creation of Adam.",
+    "movement_class": "High_Renaissance",
+    "relevant_chunks": ["High_Renaissance"]
+  },
+  {
+    "id": "q034",
+    "question": "What is The Great Wave off Kanagawa?",
+    "ground_truth": "The Great Wave off Kanagawa is a woodblock print by Katsushika Hokusai from around 1831, part of his Thirty-six Views of Mount Fuji series, depicting an enormous wave with Mount Fuji visible in the background.",
+    "movement_class": "Ukiyo_e",
+    "relevant_chunks": ["Ukiyo_e"]
+  },
+  {
+    "id": "q035",
+    "question": "What was the Council of Trent's influence on Baroque art?",
+    "ground_truth": "The Council of Trent decreed that religious art should be clear, accurate, and emotionally engaging to inspire the faithful and instruct the illiterate, encouraging dramatic emotional power and accessible narrative clarity in Baroque painting.",
+    "movement_class": "Baroque",
+    "relevant_chunks": ["Baroque"]
+  },
+  {
+    "id": "q036",
+    "question": "How did Monet's Water Lilies series evolve?",
+    "ground_truth": "Monet's Water Lilies occupied him from the 1890s until his death in 1926, evolving into vast immersive canvases that bordered on abstraction, culminating in the monumental panels installed in the Orangerie museum in Paris.",
+    "movement_class": "Impressionism",
+    "relevant_chunks": ["Impressionism"]
+  },
+  {
+    "id": "q037",
+    "question": "What is papier colle?",
+    "ground_truth": "Papier colle is a technique of pasting paper into artworks, pioneered by Georges Braque in 1912 when he incorporated pieces of faux-bois wallpaper into a charcoal drawing, marking the birth of collage in Cubism.",
+    "movement_class": "Synthetic_Cubism",
+    "relevant_chunks": ["Synthetic_Cubism", "Cubism"]
+  },
+  {
+    "id": "q038",
+    "question": "What materials did Donald Judd use in his sculptures?",
+    "ground_truth": "Judd used industrial materials such as anodized aluminum, Plexiglas, galvanized iron, and painted steel, fabricated in industrial workshops according to precise specifications.",
+    "movement_class": "Minimalism",
+    "relevant_chunks": ["Minimalism"]
+  },
+  {
+    "id": "q039",
+    "question": "How did Mark Rothko want viewers to experience his paintings?",
+    "ground_truth": "Rothko wanted viewers to stand close to his large canvases and be completely absorbed by the color, experiencing something akin to a religious or spiritual encounter. He insisted on dim lighting and close viewing distances.",
+    "movement_class": "Color_Field_Painting",
+    "relevant_chunks": ["Color_Field_Painting"]
+  },
+  {
+    "id": "q040",
+    "question": "What did El Greco's paintings look like?",
+    "ground_truth": "El Greco's paintings feature dramatically elongated figures with flame-like energy, intense unusual colors combining cold blues, acid greens, vivid yellows, and stormy grays, with ecstatic spiritual intensity.",
+    "movement_class": "Mannerism_Late_Renaissance",
+    "relevant_chunks": ["Mannerism_Late_Renaissance"]
+  },
+  {
+    "id": "q041",
+    "question": "What is the Ghent Altarpiece?",
+    "ground_truth": "The Ghent Altarpiece (Adoration of the Mystic Lamb, 1432) is attributed to Jan van Eyck and his brother Hubert, containing over 250 figures with extraordinary botanical accuracy, jewels, and textiles painted with microscopic precision.",
+    "movement_class": "Northern_Renaissance",
+    "relevant_chunks": ["Northern_Renaissance"]
+  },
+  {
+    "id": "q042",
+    "question": "What is Seurat's most famous painting?",
+    "ground_truth": "A Sunday Afternoon on the Island of La Grande Jatte (1884-86), a monumental Pointillist painting containing millions of individual dots of color depicting Parisians relaxing in a park.",
+    "movement_class": "Pointillism",
+    "relevant_chunks": ["Pointillism"]
+  },
+  {
+    "id": "q043",
+    "question": "What is Roy Lichtenstein known for?",
+    "ground_truth": "Lichtenstein appropriated the imagery and techniques of commercial comic strips, creating large-scale paintings replicating bold outlines, flat colors, and Ben-Day dots of printed comics.",
+    "movement_class": "Pop_Art",
+    "relevant_chunks": ["Pop_Art"]
+  },
+  {
+    "id": "q044",
+    "question": "How did Van Gogh transform Impressionist technique?",
+    "ground_truth": "Van Gogh transformed Impressionist technique into a vehicle for intense emotional expression, using thick swirling brushstrokes, vibrant non-naturalistic colors, and a dynamic sense of movement.",
+    "movement_class": "Post_Impressionism",
+    "relevant_chunks": ["Post_Impressionism"]
+  },
+  {
+    "id": "q045",
+    "question": "What is The Swing by Fragonard?",
+    "ground_truth": "The Swing (1767) epitomizes the Rococo spirit of playful eroticism, depicting a young woman on a swing in a lush garden with her skirt billowing as a young man below looks up at her.",
+    "movement_class": "Rococo",
+    "relevant_chunks": ["Rococo"]
+  },
+  {
+    "id": "q046",
+    "question": "What is Wanderer Above the Sea of Fog?",
+    "ground_truth": "Wanderer Above the Sea of Fog (c. 1818) by Caspar David Friedrich presents a lone figure standing on a rocky outcrop above clouds and mountain peaks, the defining icon of Romantic art expressing contemplation of the sublime.",
+    "movement_class": "Romanticism",
+    "relevant_chunks": ["Romanticism"]
+  },
+  {
+    "id": "q047",
+    "question": "Who was Odilon Redon?",
+    "ground_truth": "Odilon Redon created mysterious Symbolist works including early charcoal drawings (Noirs) depicting dreamlike visions of floating eyeballs and hybrid creatures, and later luminous color pastels of flowers and mythological subjects.",
+    "movement_class": "Symbolism",
+    "relevant_chunks": ["Symbolism"]
+  },
+  {
+    "id": "q048",
+    "question": "What is Nouveau Realisme?",
+    "ground_truth": "Nouveau Realisme (New Realism) was a French artistic movement founded in 1960 by Pierre Restany and Yves Klein, characterized by incorporating real objects and everyday materials directly into artworks.",
+    "movement_class": "New_Realism",
+    "relevant_chunks": ["New_Realism"]
+  },
+  {
+    "id": "q049",
+    "question": "What technique did Botticelli use?",
+    "ground_truth": "Botticelli was a supreme master of tempera technique, creating paintings of extraordinary delicacy and linear refinement with flowing linear elegance, elongated graceful figures, and intricate patterns.",
+    "movement_class": "Early_Renaissance",
+    "relevant_chunks": ["Early_Renaissance"]
+  },
+  {
+    "id": "q050",
+    "question": "What is Matisse's The Joy of Life?",
+    "ground_truth": "The Joy of Life (1905-06) depicts nude figures dancing and reclining in a landscape rendered in flat areas of brilliant pink, green, yellow, and blue with sinuous arabesque-like outlines, demonstrating Fauvist color liberation.",
+    "movement_class": "Fauvism",
+    "relevant_chunks": ["Fauvism"]
+  },
+  {
+    "id": "q051",
+    "question": "What did Rembrandt's painting technique look like in his later works?",
+    "ground_truth": "Rembrandt's later paintings employ increasingly bold, rough brushwork with thick impasto passages applied with brush, palette knife, and even fingers, moving away from the smooth precision of his early career.",
+    "movement_class": "Baroque",
+    "relevant_chunks": ["Baroque"]
+  },
+  {
+    "id": "q052",
+    "question": "How did Japanese prints influence Western art?",
+    "ground_truth": "Japanese ukiyo-e prints influenced Impressionists like Monet and Degas, Post-Impressionists like Van Gogh and Gauguin, and Art Nouveau designers through their flat color, bold outlines, asymmetrical compositions, and unusual viewpoints.",
+    "movement_class": "Ukiyo_e",
+    "relevant_chunks": ["Ukiyo_e"]
+  },
+  {
+    "id": "q053",
+    "question": "What is the Night Watch?",
+    "ground_truth": "The Night Watch (1642) by Rembrandt depicts a militia company with unprecedented dynamism, using dramatic lighting to organize a complex group portrait into a unified narrative scene.",
+    "movement_class": "Baroque",
+    "relevant_chunks": ["Baroque"]
+  },
+  {
+    "id": "q054",
+    "question": "What is Cubist passage technique?",
+    "ground_truth": "Passage is the opening of a plane's edge to allow adjacent surfaces to interpenetrate, a technique introduced by Georges Braque that creates ambiguous spatial effects where solid form and surrounding space merge.",
+    "movement_class": "Analytical_Cubism",
+    "relevant_chunks": ["Analytical_Cubism", "Cubism"]
+  },
+  {
+    "id": "q055",
+    "question": "Who was Egon Schiele?",
+    "ground_truth": "Egon Schiele was an Austrian Expressionist who created raw, contorted self-portraits and figure studies with angular emaciated bodies rendered with aggressive wiry lines, pushing boundaries of physical and psychological exposure.",
+    "movement_class": "Expressionism",
+    "relevant_chunks": ["Expressionism"]
+  },
+  {
+    "id": "q056",
+    "question": "What was the School of Athens by Raphael?",
+    "ground_truth": "The School of Athens (1509-11) gathers great philosophers of antiquity in an ideal architectural space with perfect perspective, portraying Plato with Leonardo's features and Heraclitus with Michelangelo's features.",
+    "movement_class": "High_Renaissance",
+    "relevant_chunks": ["High_Renaissance"]
+  },
+  {
+    "id": "q057",
+    "question": "How did Chuck Close create his portraits?",
+    "ground_truth": "Close created monumental faces from photographs, initially using airbrush and later developing a grid technique where each grid square contains a small abstract painting that reads as a coherent portrait from a distance.",
+    "movement_class": "Contemporary_Realism",
+    "relevant_chunks": ["Contemporary_Realism"]
+  },
+  {
+    "id": "q058",
+    "question": "What is Dan Flavin known for?",
+    "ground_truth": "Dan Flavin used commercially available fluorescent light tubes as his sole medium, arranging them in simple geometric configurations that transformed gallery spaces through colored light.",
+    "movement_class": "Minimalism",
+    "relevant_chunks": ["Minimalism"]
+  },
+  {
+    "id": "q059",
+    "question": "What was Gauguin's Synthetism?",
+    "ground_truth": "Synthetism involved applying flat areas of bold unmodulated color within strong outlines, drawing on medieval stained glass and Japanese woodblock prints, synthesizing outward appearances with inner vision and emotion.",
+    "movement_class": "Post_Impressionism",
+    "relevant_chunks": ["Post_Impressionism"]
+  },
+  {
+    "id": "q060",
+    "question": "What were Arman's Accumulations?",
+    "ground_truth": "Arman's Accumulations were assemblages of identical or similar objects gathered in transparent containers, addressing themes of mass production, consumer culture, and waste.",
+    "movement_class": "New_Realism",
+    "relevant_chunks": ["New_Realism"]
+  },
+  {
+    "id": "q061",
+    "question": "What is Hieronymus Bosch's Garden of Earthly Delights?",
+    "ground_truth": "The Garden of Earthly Delights is a triptych presenting Paradise, a fantastical central panel with hundreds of nude figures and bizarre hybrid creatures, and a nightmarish vision of Hell with musical instruments as torture devices.",
+    "movement_class": "Northern_Renaissance",
+    "relevant_chunks": ["Northern_Renaissance"]
+  },
+  {
+    "id": "q062",
+    "question": "What is Divisionism?",
+    "ground_truth": "Divisionism is a broader term encompassing the general principle of separating color into individual components placed side by side, with Pointillism being the specific technique of applying dots.",
+    "movement_class": "Pointillism",
+    "relevant_chunks": ["Pointillism"]
+  },
+  {
+    "id": "q063",
+    "question": "What was Jasper Johns' Flag painting about?",
+    "ground_truth": "Johns' Flag (1954-55) blurred the distinction between painting and object — it is simultaneously an American flag and a painting of a flag, challenging the relationship between representation and reality.",
+    "movement_class": "Pop_Art",
+    "relevant_chunks": ["Pop_Art"]
+  },
+  {
+    "id": "q064",
+    "question": "What did Courbet mean by I cannot paint an angel because I have never seen one?",
+    "ground_truth": "Courbet rejected all forms of idealization in painting, insisting on only representing real and existing things that could be directly observed, which was the core principle of Realism.",
+    "movement_class": "Realism",
+    "relevant_chunks": ["Realism"]
+  },
+  {
+    "id": "q065",
+    "question": "How did Turner's painting style evolve?",
+    "ground_truth": "Turner evolved from detailed topographical views to increasingly atmospheric and abstract paintings that dissolved form in light and color, anticipating Impressionism and even abstract art.",
+    "movement_class": "Romanticism",
+    "relevant_chunks": ["Romanticism"]
+  },
+  {
+    "id": "q066",
+    "question": "What is Gustave Moreau's painting style?",
+    "ground_truth": "Moreau created elaborate jewel-like paintings of biblical and mythological subjects with rich encrusted surfaces, exotic settings, and dreamlike hallucinatory quality, using intricate decorative detail.",
+    "movement_class": "Symbolism",
+    "relevant_chunks": ["Symbolism"]
+  },
+  {
+    "id": "q067",
+    "question": "What is Fernand Leger's style sometimes called?",
+    "ground_truth": "Leger's style is sometimes called Tubism, featuring bold tubular machine-like forms rendered in primary colors and black outlines, celebrating the relationship between human bodies and machines.",
+    "movement_class": "Synthetic_Cubism",
+    "relevant_chunks": ["Synthetic_Cubism", "Cubism"]
+  },
+  {
+    "id": "q068",
+    "question": "What is the ukiyo-e woodblock printing process?",
+    "ground_truth": "Ukiyo-e production involved four specialists: the artist who created the design, the engraver who carved woodblocks, the printer who applied pigments and pressed paper, and the publisher who financed and distributed the prints.",
+    "movement_class": "Ukiyo_e",
+    "relevant_chunks": ["Ukiyo_e"]
+  },
+  {
+    "id": "q069",
+    "question": "What is Barnett Newman's zip?",
+    "ground_truth": "Zips are thin vertical lines dividing large fields of solid color in Newman's paintings, first established in Onement I (1948), exploring themes of creation, the sublime, and the metaphysical.",
+    "movement_class": "Color_Field_Painting",
+    "relevant_chunks": ["Color_Field_Painting", "Abstract_Expressionism"]
+  },
+  {
+    "id": "q070",
+    "question": "What are Grandma Moses' paintings about?",
+    "ground_truth": "Grandma Moses painted scenes of rural American life depicting farming, holidays, and seasonal activities with bright colors, detailed narratives, and a bird's eye perspective, starting at age 78.",
+    "movement_class": "Naive_Art_Primitivism",
+    "relevant_chunks": ["Naive_Art_Primitivism"]
+  },
+  {
+    "id": "q071",
+    "question": "What is Antoni Gaudi's architectural style?",
+    "ground_truth": "Gaudi drew on natural structures like bones, shells, and plant forms to create buildings that seem to grow organically, with undulating facades, mosaic-covered surfaces, and interiors evoking underwater caves and forests.",
+    "movement_class": "Art_Nouveau_Modern",
+    "relevant_chunks": ["Art_Nouveau_Modern"]
+  },
+  {
+    "id": "q072",
+    "question": "How did the Impressionists handle shadows?",
+    "ground_truth": "Instead of using black or dark earth tones, Impressionists observed that shadows contain reflected colors and painted them in blue, violet, and green to create luminous atmosphere.",
+    "movement_class": "Impressionism",
+    "relevant_chunks": ["Impressionism"]
+  },
+  {
+    "id": "q073",
+    "question": "What was Degas known for painting?",
+    "ground_truth": "Degas was known for paintings and pastels of ballet dancers, racehorses, and women bathing, using unconventional compositions with unusual angles, cropping, and asymmetrical arrangements influenced by Japanese prints.",
+    "movement_class": "Impressionism",
+    "relevant_chunks": ["Impressionism"]
+  },
+  {
+    "id": "q074",
+    "question": "What is Las Meninas by Velazquez?",
+    "ground_truth": "Las Meninas (1656) is a complex meditation on vision and representation depicting the artist painting while a princess and attendants occupy the foreground, with the king and queen visible as reflections in a mirror.",
+    "movement_class": "Baroque",
+    "relevant_chunks": ["Baroque"]
+  },
+  {
+    "id": "q075",
+    "question": "What is the Burial of the Count of Orgaz?",
+    "ground_truth": "The Burial of the Count of Orgaz (1586-88) by El Greco is divided into a realistic lower register depicting the burial and a visionary upper register showing heavens opening to receive the count's soul among swirling saints and angels.",
+    "movement_class": "Mannerism_Late_Renaissance",
+    "relevant_chunks": ["Mannerism_Late_Renaissance"]
+  },
+  {
+    "id": "q076",
+    "question": "How did photography influence Impressionism?",
+    "ground_truth": "Photography inspired Impressionists to represent momentary action and candid scenes, while also pushing artists to focus on subjective expression of perception rather than competing with photography's ability to reproduce reality.",
+    "movement_class": "Impressionism",
+    "relevant_chunks": ["Impressionism"]
+  },
+  {
+    "id": "q077",
+    "question": "What was the Sack of Rome's impact on art?",
+    "ground_truth": "The Sack of Rome in 1527 ended the High Renaissance, dispersing artists throughout Italy and shattering the confidence that had supported the High Renaissance ideal, leading to the development of Mannerism.",
+    "movement_class": "High_Renaissance",
+    "relevant_chunks": ["High_Renaissance", "Mannerism_Late_Renaissance"]
+  },
+  {
+    "id": "q078",
+    "question": "What is Sol LeWitt's contribution to art?",
+    "ground_truth": "LeWitt bridged Minimalism and Conceptual Art with wall drawings executed according to written instructions by anyone, emphasizing the idea behind the work rather than its physical execution.",
+    "movement_class": "Minimalism",
+    "relevant_chunks": ["Minimalism"]
+  },
+  {
+    "id": "q079",
+    "question": "What were the Impressionist exhibitions?",
+    "ground_truth": "The Impressionists held eight independent exhibitions between 1874 and 1886, organized through the Societe anonyme des artistes peintres, with members forswearing participation in the official Salon.",
+    "movement_class": "Impressionism",
+    "relevant_chunks": ["Impressionism"]
+  },
+  {
+    "id": "q080",
+    "question": "What is Robert Rauschenberg's combines?",
+    "ground_truth": "Combines merged painting with sculpture by incorporating found objects such as tires, stuffed animals, clocks, and radios into painted surfaces, blurring the boundary between art and everyday objects.",
+    "movement_class": "Pop_Art",
+    "relevant_chunks": ["Pop_Art"]
+  },
+  {
+    "id": "q081",
+    "question": "How did Watteau compose his paintings?",
+    "ground_truth": "Watteau kept albums of figure studies drawn from life and arranged these figures into paintings, often combining studies made at different times and contexts, painting with small shimmering brushstrokes.",
+    "movement_class": "Rococo",
+    "relevant_chunks": ["Rococo"]
+  },
+  {
+    "id": "q082",
+    "question": "What is the relationship between Fauvism and Expressionism?",
+    "ground_truth": "Both movements used bold non-naturalistic color for emotional expression, but Fauvism emphasized joyous chromatic beauty and decorative harmony while Expressionism emphasized anxiety, alienation, and psychological intensity.",
+    "movement_class": "Fauvism",
+    "relevant_chunks": ["Fauvism", "Expressionism"]
+  },
+  {
+    "id": "q083",
+    "question": "What is Albrecht Durer's Melencolia I?",
+    "ground_truth": "Melencolia I (1514) is perhaps the most intellectually complex print ever made, filled with mathematical, astronomical, and alchemical symbols surrounding a brooding winged figure.",
+    "movement_class": "Northern_Renaissance",
+    "relevant_chunks": ["Northern_Renaissance"]
+  },
+  {
+    "id": "q084",
+    "question": "How did the Impressionists use new paint technology?",
+    "ground_truth": "Premixed paints in tin tubes, widely available from the 1840s, allowed Impressionists to work spontaneously outdoors, while new vivid synthetic pigments like cerulean blue and cadmium yellow expanded their palette.",
+    "movement_class": "Impressionism",
+    "relevant_chunks": ["Impressionism"]
+  },
+  {
+    "id": "q085",
+    "question": "What is Jean Tinguely's Homage to New York?",
+    "ground_truth": "Homage to New York (1960) was a large self-destructing machine built at the Museum of Modern Art garden that caught fire, broke apart, and partially collapsed during its single public performance.",
+    "movement_class": "New_Realism",
+    "relevant_chunks": ["New_Realism"]
+  },
+  {
+    "id": "q086",
+    "question": "What was Morris Louis's painting technique?",
+    "ground_truth": "Louis created Veil paintings by pouring thinned Magna acrylic paint down unstretched canvas propped at an angle, creating overlapping translucent layers. He worked alone and destroyed paintings that didn't meet his standards.",
+    "movement_class": "Color_Field_Painting",
+    "relevant_chunks": ["Color_Field_Painting"]
+  },
+  {
+    "id": "q087",
+    "question": "What is Pieter Bruegel the Elder known for?",
+    "ground_truth": "Bruegel painted panoramic landscapes and peasant life scenes combining close observation of human behavior with philosophical perspective, including Hunters in the Snow, one of the most beloved winter landscapes in art.",
+    "movement_class": "Northern_Renaissance",
+    "relevant_chunks": ["Northern_Renaissance"]
+  },
+  {
+    "id": "q088",
+    "question": "What is Paul Signac's contribution to Pointillism?",
+    "ground_truth": "After Seurat's early death, Signac continued developing Pointillism with larger more visible dots and vivid saturated hues, and wrote the theoretical text From Eugene Delacroix to Neo-Impressionism promoting the movement's color theories.",
+    "movement_class": "Pointillism",
+    "relevant_chunks": ["Pointillism"]
+  },
+  {
+    "id": "q089",
+    "question": "What is Delacroix's Liberty Leading the People about?",
+    "ground_truth": "Liberty Leading the People (1830) depicts the July Revolution in Paris with the personification of Liberty as a bare-breasted woman leading revolutionaries over barricades, combining allegorical symbolism with journalistic immediacy.",
+    "movement_class": "Romanticism",
+    "relevant_chunks": ["Romanticism"]
+  },
+  {
+    "id": "q090",
+    "question": "How did Goya's style change in his later works?",
+    "ground_truth": "Goya's late Black Paintings abandoned polished surfaces of his earlier court portraits for raw, aggressive brushwork with dark earthy colors, creating disturbing images like Saturn Devouring His Son that anticipate 20th-century art.",
+    "movement_class": "Romanticism",
+    "relevant_chunks": ["Romanticism"]
+  },
+  {
+    "id": "q091",
+    "question": "What is the Arnold Bocklin's Isle of the Dead?",
+    "ground_truth": "The Isle of the Dead (1880) depicts a boat carrying a white-robed figure and coffin toward a rocky island surrounded by dark cypress trees, combining precise realistic rendering with profound mystery, existing in five versions.",
+    "movement_class": "Symbolism",
+    "relevant_chunks": ["Symbolism"]
+  },
+  {
+    "id": "q092",
+    "question": "What was Mary Cassatt's role in Impressionism?",
+    "ground_truth": "Cassatt was an American who became a central member of the French Impressionist circle, known for paintings of mothers and children with bold compositional choices, and was instrumental in introducing Impressionist painting to American collectors.",
+    "movement_class": "Impressionism",
+    "relevant_chunks": ["Impressionism"]
+  },
+  {
+    "id": "q093",
+    "question": "What was Kandinsky's theory about abstract art?",
+    "ground_truth": "Kandinsky believed that color and form could express spiritual truths directly without reference to the material world, arguing in Concerning the Spiritual in Art that art was entering a new spiritual epoch of abstract forms.",
+    "movement_class": "Expressionism",
+    "relevant_chunks": ["Expressionism"]
+  },
+  {
+    "id": "q094",
+    "question": "What is the difference between tempera and oil painting?",
+    "ground_truth": "Tempera dried quickly to a smooth finish but was difficult to blend, while oil paint dried slowly allowing smooth blending, translucent glazes, subtle light effects, and corrections during the painting process.",
+    "movement_class": "Early_Renaissance",
+    "relevant_chunks": ["Early_Renaissance"]
+  },
+  {
+    "id": "q095",
+    "question": "What was Niki de Saint Phalle's shooting paintings?",
+    "ground_truth": "Niki de Saint Phalle assembled plaster reliefs concealing bags and cans of paint, then shot at them with a rifle so paint exploded across the white surface, combining violence, chance, and artistic creation.",
+    "movement_class": "New_Realism",
+    "relevant_chunks": ["New_Realism"]
+  },
+  {
+    "id": "q096",
+    "question": "What is Henri Rousseau's The Dream?",
+    "ground_truth": "The Dream (1910) shows a nude woman on a sofa in a dense jungle with lions, birds, monkeys, and a snake charmer, combining domestic intimacy with exotic fantasy, anticipating Surrealism.",
+    "movement_class": "Naive_Art_Primitivism",
+    "relevant_chunks": ["Naive_Art_Primitivism"]
+  },
+  {
+    "id": "q097",
+    "question": "What was the Vienna Secession?",
+    "ground_truth": "The Vienna Secession was founded in 1897 by Gustav Klimt and others who broke away from the conservative academic establishment to promote modern art and create a synthesis of fine and applied arts.",
+    "movement_class": "Art_Nouveau_Modern",
+    "relevant_chunks": ["Art_Nouveau_Modern"]
+  },
+  {
+    "id": "q098",
+    "question": "What is Agnes Martin's art style?",
+    "ground_truth": "Martin's paintings feature pale luminous surfaces divided by penciled grids or horizontal bands of subtle color variation, combining Minimalist form with meditative spiritual sensibility and the slight imperfections of human touch.",
+    "movement_class": "Minimalism",
+    "relevant_chunks": ["Minimalism"]
+  },
+  {
+    "id": "q099",
+    "question": "What influenced Picasso's Les Demoiselles d'Avignon?",
+    "ground_truth": "The painting was influenced by African masks from the Trocadero museum and Iberian sculpture, with the two right figures having mask-like faces that contributed to the radical formal innovations of proto-Cubism.",
+    "movement_class": "Cubism",
+    "relevant_chunks": ["Cubism", "Naive_Art_Primitivism"]
+  },
+  {
+    "id": "q100",
+    "question": "What is Titian's painting technique?",
+    "ground_truth": "Titian built images through layers of color rather than precise drawing, using brushes, palette knives, and even fingers to create rich luminous surfaces of extraordinary textural variety, setting the standard for coloristic painting.",
+    "movement_class": "High_Renaissance",
+    "relevant_chunks": ["High_Renaissance"]
+  }
+]

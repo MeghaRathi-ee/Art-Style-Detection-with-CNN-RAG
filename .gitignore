@@ -1,8 +1,10 @@
 venv/
-.chromadb/
 __pycache__/
+*.pyc
 *.pth
-data/
 *.zip
 .DS_Store
-*.pyc
+.env
+chroma_db/
+logs/
+eval_results/

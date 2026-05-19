@@ -1,200 +1,180 @@
 """
-app.py
-======
-Streamlit web app for art style detection + historical context via RAG.
+Art Style Detection — Streamlit App
 
-Run with:
-    streamlit run app.py
+Upload a painting → CNN classifies → RAG generates cited analysis.
 """
-
 import streamlit as st
-import torch
-from PIL import Image
+import time
 import sys
-import os
+import torch
+from pathlib import Path
+from PIL import Image
 
-sys.path.append(os.path.dirname(__file__))
+sys.path.append(str(Path(__file__).parent))
 
-from art_classifier import ArtStyleClassifier, ART_STYLES, classify_image
-from knowledge_base import ArtKnowledgeBase
-from rag_pipeline import ArtRAGPipeline
+from config import CLASS_NAMES
+from cnn.art_classifier import ArtStyleClassifier, classify_image
+from retrieval.query_expansion import expand_query
+from retrieval.retriever import HybridRetriever
+from retrieval.reranker import Reranker
+from generation.prompt_templates import build_art_analysis_prompt
+from generation.llm import generate
+from generation.response import check_grounding
+from logging_utils import log_query
 
-# ── Page config ───────────────────────────────────────────────────────────────
+
+# ── Page Config ──────────────────────────────────────────────────────────────
+
 st.set_page_config(
-    page_title="Art Style Detector",
+    page_title="Art Style Detection",
     page_icon="🎨",
     layout="wide",
 )
 
-# ── Custom CSS ────────────────────────────────────────────────────────────────
-st.markdown("""
-<style>
-    .main-title {
-        font-size: 2.5rem;
-        font-weight: 600;
-        margin-bottom: 0.2rem;
-    }
-    .subtitle {
-        color: #888;
-        font-size: 1rem;
-        margin-bottom: 2rem;
-    }
-    .style-badge {
-        display: inline-block;
-        background: #f0f0f0;
-        border-radius: 20px;
-        padding: 6px 18px;
-        font-size: 1.1rem;
-        font-weight: 600;
-        color: #333;
-        margin-bottom: 1rem;
-    }
-    .confidence-label {
-        color: #888;
-        font-size: 0.85rem;
-        margin-bottom: 0.2rem;
-    }
-    .context-box {
-        background: #fafafa;
-        border-left: 3px solid #e0e0e0;
-        border-radius: 4px;
-        padding: 1.2rem 1.5rem;
-        font-size: 0.97rem;
-        line-height: 1.8;
-        color: #333;
-    }
-    .warning-box {
-        background: #fff8e1;
-        border-left: 3px solid #ffc107;
-        border-radius: 4px;
-        padding: 0.8rem 1rem;
-        font-size: 0.9rem;
-        color: #555;
-    }
-</style>
-""", unsafe_allow_html=True)
+st.title("🎨 Art Style Detection with CNN + RAG")
+st.markdown("Upload a painting to identify its art movement and get a detailed, citation-backed analysis.")
 
 
-# ── Load model (cached so it only loads once) ─────────────────────────────────
-@st.cache_resource
-def load_model():
-    model_path = os.path.join(os.path.dirname(__file__), "art_classifier.pth")
-    model = ArtStyleClassifier(num_classes=len(ART_STYLES))
-    if os.path.exists(model_path):
-        model.load_state_dict(torch.load(model_path, map_location="cpu"))
-        model.eval()
-        return model, True
-    else:
-        model.eval()
-        return model, False
-
+# ── Cache heavy models ───────────────────────────────────────────────────────
 
 @st.cache_resource
-def load_knowledge_base():
-    kb = ArtKnowledgeBase()
-    kb.build()
-    return kb
+def load_cnn():
+    model = ArtStyleClassifier(num_classes=27)
+    model.load_state_dict(torch.load("cnn/models/art_classifier.pth", map_location="cpu"))
+    model.eval()
+    return model
+
+@st.cache_resource
+def load_retriever():
+    return HybridRetriever()
+
+@st.cache_resource
+def load_reranker():
+    return Reranker()
 
 
-# ── Header ────────────────────────────────────────────────────────────────────
-st.markdown('<div class="main-title">🎨 Art Style Detector</div>', unsafe_allow_html=True)
-st.markdown('<div class="subtitle">Upload a painting to detect its art movement and get historical context</div>', unsafe_allow_html=True)
+# ── Sidebar ──────────────────────────────────────────────────────────────────
 
-# ── Load resources ────────────────────────────────────────────────────────────
-with st.spinner("Loading model..."):
-    model, weights_loaded = load_model()
+with st.sidebar:
+    st.header("Settings")
+    top_k = st.slider("Retrieval candidates", 5, 20, 10)
+    top_n = st.slider("Chunks after reranking", 3, 10, 5)
+    show_chunks = st.checkbox("Show retrieved chunks", value=False)
+    show_debug = st.checkbox("Show pipeline debug info", value=False)
 
-if not weights_loaded:
+    st.markdown("---")
+    st.markdown("**Pipeline**")
     st.markdown("""
-    <div class="warning-box">
-    ⚠️ <b>art_classifier.pth not found</b> — running in zero-shot mode.
-    Download the trained weights from the cluster and place them in the same folder as app.py.
-    </div>
-    """, unsafe_allow_html=True)
-    st.markdown("")
+    1. 🖼️ CNN classifies movement
+    2. 🔍 Query expansion
+    3. 📚 Hybrid retrieval (dense + BM25)
+    4. ⚖️ Cross-encoder reranking
+    5. 📝 LLM generation with citations
+    6. ✅ Grounding check
+    """)
 
-with st.spinner("Loading knowledge base..."):
-    kb = load_knowledge_base()
-
-rag = ArtRAGPipeline(knowledge_base=kb, n_retrieve=2)
-
-# ── Layout ────────────────────────────────────────────────────────────────────
-col1, col2 = st.columns([1, 1.2], gap="large")
-
-with col1:
-    st.subheader("Upload Artwork")
-    uploaded = st.file_uploader(
-        "Choose an image",
-        type=["jpg", "jpeg", "png", "webp"],
-        label_visibility="collapsed",
+    st.markdown("---")
+    st.markdown("**Or test RAG directly:**")
+    movement_select = st.selectbox(
+        "Select movement (skip CNN)",
+        [""] + [c.replace("_", " ") for c in CLASS_NAMES],
     )
 
-    if uploaded:
-        image = Image.open(uploaded).convert("RGB")
-        st.image(image, use_container_width=True, caption=uploaded.name)
 
-with col2:
-    if not uploaded:
-        st.markdown("### Results will appear here")
-        st.markdown("Upload a painting on the left to get started.")
-    else:
-        # ── CNN Classification ────────────────────────────────────────────
-        with st.spinner("Analysing art style..."):
-            style, confidence, top5 = classify_image(model, image, top_k=5)
+# ── Main ─────────────────────────────────────────────────────────────────────
 
-        style_display = style.replace("_", " ")
-        st.markdown(f'<div class="style-badge">🖼 {style_display}</div>', unsafe_allow_html=True)
+uploaded_file = st.file_uploader("Upload a painting", type=["jpg", "jpeg", "png", "webp"])
 
-        # Confidence bar
-        st.markdown('<div class="confidence-label">Confidence</div>', unsafe_allow_html=True)
-        st.progress(confidence)
-        st.caption(f"{confidence:.1%}")
+# Determine which path to take
+movement_class = None
+image = None
 
-        # Top-5 breakdown
-        with st.expander("Top-5 predictions"):
-            for s, p in top5:
-                s_display = s.replace("_", " ")
-                col_a, col_b = st.columns([3, 1])
-                with col_a:
-                    st.progress(p, text=s_display)
-                with col_b:
-                    st.write(f"{p:.1%}")
+if uploaded_file is not None:
+    image = Image.open(uploaded_file)
+    col1, col2 = st.columns([1, 2])
 
-        st.divider()
+    with col1:
+        st.image(image, caption="Uploaded Painting", use_container_width=True)
 
-        # ── RAG Context ───────────────────────────────────────────────────
-        st.subheader("Historical Context")
+    with col2:
+        with st.spinner("Classifying with CNN..."):
+            cnn_model = load_cnn()
+            predicted_class, confidence, top_k_preds = classify_image(cnn_model, image)
+            movement_class = predicted_class
 
-        ollama_ok = True
-        try:
-            import urllib.request
-            urllib.request.urlopen("http://localhost:11434", timeout=3)
-        except Exception:
-            ollama_ok = False
+        st.success(f"**Predicted Movement:** {movement_class.replace('_', ' ')} ({confidence:.1%})")
 
-        if not ollama_ok:
-            st.markdown("""
-            <div class="warning-box">
-            ⚠️ <b>Ollama is not running.</b><br>
-            Open a terminal and run: <code>ollama serve</code>
-            </div>
-            """, unsafe_allow_html=True)
-        else:
-            with st.spinner("Generating context with llama3.2... (may take 2–3 min)"):
-                try:
-                    result = rag.query_with_sources(style=style, confidence=confidence)
-                    context = result["generated_context"]
-                    sources = result["sources"]
+        if show_debug:
+            st.markdown("**Top-5 Predictions:**")
+            for cls, prob in top_k_preds:
+                st.markdown(f"- {cls.replace('_', ' ')}: {prob:.1%}")
 
-                    st.markdown(
-                        f'<div class="context-box">{context.replace(chr(10), "<br>")}</div>',
-                        unsafe_allow_html=True,
-                    )
+elif movement_select:
+    movement_class = movement_select.replace(" ", "_")
+    st.info(f"Testing RAG for: **{movement_select}**")
 
-                    with st.expander("Retrieved knowledge base sources"):
-                        for i, src in enumerate(sources, 1):
-                            st.markdown(f"**[{i}] {src['movement']} — chunk {src['chunk_index']}**")
-                            st.caption(src["text"])
 
-                except Exception as e:
-                    st.error(f"Generation failed: {e}")
+# ── Run RAG Pipeline ─────────────────────────────────────────────────────────
+
+if movement_class:
+    start = time.time()
+
+    # Step 1: Query Expansion
+    query = expand_query(movement_class)
+
+    if show_debug:
+        st.markdown("---")
+        st.markdown("#### 🔍 Debug: Query Expansion")
+        st.code(query)
+
+    # Step 2: Hybrid Retrieval
+    with st.spinner("Retrieving relevant chunks..."):
+        retriever = load_retriever()
+        candidates = retriever.retrieve(query, top_k=top_k)
+
+    # Step 3: Reranking
+    with st.spinner("Reranking with cross-encoder..."):
+        reranker = load_reranker()
+        top_chunks = reranker.rerank(query, candidates, top_n=top_n)
+
+    if show_debug:
+        st.markdown("#### ⚖️ Debug: Reranking Results")
+        for i, chunk in enumerate(top_chunks):
+            src = chunk["metadata"].get("source_file", "?")
+            score = chunk.get("rerank_score", 0)
+            st.markdown(f"**[{i+1}]** {src} — score: {score:.3f} — {chunk['metadata']['word_count']} words")
+
+    # Step 4 + 5: Prompt Construction + LLM Generation
+    with st.spinner("Generating analysis..."):
+        prompt = build_art_analysis_prompt(movement_class, top_chunks)
+        response = generate(prompt)
+
+    # Step 6: Grounding Check
+    grounding = check_grounding(response, top_chunks)
+    latency = time.time() - start
+
+    # Log
+    log_query(query, movement_class, top_chunks, response, latency)
+
+    # ── Display Results ──────────────────────────────────────────────────
+
+    st.markdown("---")
+    st.markdown(f"### 📖 {movement_class.replace('_', ' ')} — Art Movement Analysis")
+    st.markdown(response)
+
+    # Metrics row
+    col1, col2, col3, col4 = st.columns(4)
+    col1.metric("Grounding", f"{grounding['grounding_ratio']:.0%}")
+    col2.metric("Citations Used", f"{len(grounding['citations_used'])}/{len(top_chunks)}")
+    col3.metric("Response", f"{len(response.split())} words")
+    col4.metric("Latency", f"{latency:.1f}s")
+
+    # Show retrieved chunks
+    if show_chunks:
+        st.markdown("---")
+        st.markdown("#### 📚 Retrieved Chunks")
+        for i, chunk in enumerate(top_chunks):
+            src = chunk["metadata"].get("source_file", "?")
+            score = chunk.get("rerank_score", 0)
+            with st.expander(f"[{i+1}] {src} (score: {score:.3f})"):
+                st.markdown(chunk["text"])
